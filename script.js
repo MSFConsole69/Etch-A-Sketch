@@ -9,11 +9,13 @@ function makeContainer(size) {
         gridItem.classList.add('grid-items');
         container.appendChild(gridItem);
         gridItem.addEventListener('mouseover', () => {
-            gridItem.style.backgroundColor = "black";
+            let randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`; 
+            gridItem.style.backgroundColor = randomColor;
         })
     }
 }
 
+makeContainer(16);
 
 const btnSize = document.querySelector('#btn-size');
 const btnClear = document.querySelector('#btn-clear');
@@ -27,4 +29,5 @@ btnSize.addEventListener('click', (size) => {
 
 btnClear.addEventListener('click', () => {
     container.innerHTML = '';
+    makeContainer(16);
 })
